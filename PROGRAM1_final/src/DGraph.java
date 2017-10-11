@@ -144,7 +144,7 @@ public class DGraph {
 		int WalkVertex = -1;   //随机游走起始的节点索引
 		while(WalkVertex < 0)
 			WalkVertex = r.nextInt() % VertexNum; 
-		//System.out.println(WalkVertex);
+		
 		StringBuilder WordBuilder = new StringBuilder();
 		String firstword = adj[WalkVertex].getHead().word;
 		WordBuilder.append(firstword);
@@ -187,7 +187,7 @@ public class DGraph {
 			}
 				
 		}
-		//WordBuilder.append(" "+adj[nextVertex].first.Word);
+		
 		Reply = WordBuilder.toString();
 		return Reply;
 	}
@@ -351,7 +351,7 @@ public class DGraph {
 			{
 				int MINdist = MAX;           //当前的最短路径
 				int interVertex = index1;    //途经的中间点
-				for(int j = 0;j<vertex;j++)
+				for(int j = 0;j<vertex;j++)  //选择当前距离最小的边
 				{
 					if(!visited[j] && dist[j] < MINdist)
 					{
@@ -611,7 +611,7 @@ class Node{
 }
 
 class LinkedList{
-	private Node head = null;
+	private Node first = null;
 	private Node tail = null;
 	public int nodeNum;
 	public LinkedList(){
@@ -620,17 +620,17 @@ class LinkedList{
 	public LinkedList(String w){
 		nodeNum = 0;
 		Node newNode = new Node(w,-1);
-		head = newNode;
+		first = newNode;
 		tail = newNode;
 	}
 	public boolean isEmpty(){
 
-		return head==null;
+		return first==null;
 	}
 	public void addNode(String w,int n){
 		Node newNode = new Node(w,n);
 		if(isEmpty()){
-			head = tail = newNode;
+			first = tail = newNode;
 		}else{
 			tail.next = newNode;
 			tail = newNode;
@@ -638,7 +638,7 @@ class LinkedList{
 		nodeNum++;
 	}
 	public Node getHead(){
-		return head;
+		return first;
 	}
 	public Node getTail(){
 		return tail;
