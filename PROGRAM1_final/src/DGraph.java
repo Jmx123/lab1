@@ -587,7 +587,10 @@ class LinkedList{
 	}
 	public boolean isEmpty(){
 
-		return head==null;
+		if(head==null)
+			return true;
+		else
+			return false;
 	}
 	public void addNode(String w,int n){
 		Node newNode = new Node(w,n);
