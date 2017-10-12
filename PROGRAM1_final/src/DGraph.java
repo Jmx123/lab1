@@ -489,6 +489,7 @@ public class DGraph {
 			return builder.toString();
 		}
 		
+	//添加注释
 	public String[] calcShortestPath(String word1)  //最短路径，Dijkstra算法,只有一个参数
 		{
 			int[] path = new int[vertex];  //记录经过的点
@@ -612,7 +613,7 @@ class Node{
 
 class LinkedList{
 	private Node first = null;
-	private Node tail = null;
+	private Node last = null;
 	public int nodeNum;
 	public LinkedList(){
 		nodeNum = -1;
@@ -621,7 +622,7 @@ class LinkedList{
 		nodeNum = 0;
 		Node newNode = new Node(w,-1);
 		first = newNode;
-		tail = newNode;
+		last = newNode;
 	}
 	public boolean isEmpty(){
 
@@ -630,10 +631,10 @@ class LinkedList{
 	public void addNode(String w,int n){
 		Node newNode = new Node(w,n);
 		if(isEmpty()){
-			first = tail = newNode;
+			first = last = newNode;
 		}else{
-			tail.next = newNode;
-			tail = newNode;
+			last.next = newNode;
+			last = newNode;
 		}
 		nodeNum++;
 	}
@@ -641,6 +642,6 @@ class LinkedList{
 		return first;
 	}
 	public Node getTail(){
-		return tail;
+		return last;
 	}
 }
