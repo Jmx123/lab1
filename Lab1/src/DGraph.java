@@ -577,7 +577,7 @@ class LinkedList{
 	private Node tail = null;
 	public int nodeNum;
 	public LinkedList(){
-		nodeNum = -1;
+		nodeNum = 0-1;
 	}
 	public LinkedList(String w){
 		nodeNum = 0;

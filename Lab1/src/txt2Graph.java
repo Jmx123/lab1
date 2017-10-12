@@ -40,7 +40,7 @@ public class txt2Graph {
 			label.setLayout(new FlowLayout());
 			add(label);
 		}
-		private static final int DEFAULT_WIDTH = 800;
+		private static final int DEFAULT_WIDTH = 1000;
 		private static final int DEFAULT_HEIGHT = 600;
 	}
 	//contro panel
