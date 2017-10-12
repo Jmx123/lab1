@@ -227,6 +227,7 @@ public class txt2Graph {
 				String reslutsRandomWalk = graph.randomWalk();
 				showPath(graph,reslutsRandomWalk);
 				JOptionPane.showMessageDialog(null, "\""+reslutsRandomWalk+"\""+" has been stored in "+randomWalkFileName,"random walk",JOptionPane.INFORMATION_MESSAGE);
+			    //×¢ÊÍ
 			}
 		}
 		private JPanel panel;
@@ -248,6 +249,7 @@ public class txt2Graph {
 		 img = new ImageIcon(pathGraphFileName);
 		 label.setIcon(img);
 		 label.setText(null);
+		 //×¢ÊÍ
 	 }
 	static void showPathes(DGraph graph,String[] Pathes){
 		pathGraphFileName = graph.showGraphPathes(resultsFileName, Pathes);
@@ -274,6 +276,7 @@ public class txt2Graph {
 	 private static String pathGraphFileName = null;
 	 private static String randomWalkFileName = null;
 	 private static ImageIcon img;
+	 //Ìí¼Ó×¢ÊÍ
 	 //private static String graphFileName = "C://Users//ibm//Desktop//testResults.gif";
 	 private static translatorFrame frame ;
 }
