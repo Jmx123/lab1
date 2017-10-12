@@ -29,7 +29,7 @@ public class txt2Graph {
 			}
 		});
 	}
-	//show frame
+	//show——frame
 	static class translatorFrame extends JFrame{
 		public translatorFrame(){
 			setTitle("实验一：文本有向图");

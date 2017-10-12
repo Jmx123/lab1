@@ -8,7 +8,7 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-
+//this is used to draw graph
 public class GraphViz {
     private static String TEMP_DIR = "c:/temp";
     private static String DOT = "E:\\Graphviz\\bin\\dot.exe";
