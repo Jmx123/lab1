@@ -417,16 +417,6 @@ public class DGraph {
 					}
 				}
 				
-			/*	Node interNode = adj[interVertex].first.next;  //待更新的节点
-				while(interNode != null)    //更新dist
-				{
-					if(!visited[interNode.No] && dist[interNode.No]>dist[interVertex]+interNode.weight)
-					{
-						dist[interNode.No] = dist[interVertex]+interNode.weight;
-						path[interNode.No] = interVertex;
-					}
-					interNode = interNode.next;
-				}*/
 			}
 			if(flag == false)
 			{
@@ -603,6 +593,7 @@ class Node{
 		next = null;
 		num = weight = 0;
 	}
+	//这是注释
 	public Node(String w,int n){
 		word = w;
 		weight = 1;
@@ -618,6 +609,7 @@ class LinkedList{
 	public LinkedList(){
 		nodeNum = -1;
 	}
+	//这是注释
 	public LinkedList(String w){
 		nodeNum = 0;
 		Node newNode = new Node(w,-1);
