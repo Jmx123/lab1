@@ -126,7 +126,11 @@ public class DGraph {
 	}
 	public String randomWalk()  //随机游走,随机选择节点开始游走
 	{
+<<<<<<< .merge_file_a11992
 		int VertexNum = vertex;
+=======
+		int VertexNum = vertex; 
+>>>>>>> .merge_file_a08116
 		String Reply = new String();
 		int MAXEdgeNum = 0;    //顶点最大出度
 		for(int i = 0 ;i< VertexNum;i++)
