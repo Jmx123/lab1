@@ -25,7 +25,6 @@ public class GraphViz {
 
 
     public void add(String line) {
-    	  //读取文件一行
             graph.append(line);
     }
 
@@ -36,7 +35,6 @@ public class GraphViz {
 
 
     public void addln() {
-    	//换行
             graph.append('\n');
     }
 

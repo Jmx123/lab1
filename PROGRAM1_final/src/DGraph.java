@@ -1,7 +1,9 @@
-import java.util.regex.Matcher;
+//import java.util.regex.Matcher;
 import java.util.Random;
-import java.util.regex.*;
-import java.awt.Color;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+//import java.util.regex.*;
+//import java.awt.Color;
 import java.io.File;
 public class DGraph {
 	public DGraph(){
@@ -107,8 +109,19 @@ public class DGraph {
 	public String generateNewText(String inputText){
 		String s = inputText.replaceAll("[\\p{Punct}\\p{Space}]+", " ");  //标点变成空格
 		String[] words = s.trim().split("\\s+");   //按空格分割
-		if(words.length<=2){
-			return "the input text should be longer";
+		
+		for(int i = 0;i<words.length;i++)   //正则表达式匹配字母
+		{
+			words[i] = words[i].replaceAll("[^(a-zA-Z)]","");
+		}
+		if(words.length==1 ){
+			if (words[0].equals(""))
+			{
+				return "the input text should contain letter";
+			}
+			else {
+				return "the input text should be longer";
+			}
 		}
 		String text = words[0];
 		String word1,word2,word3;
@@ -116,6 +129,8 @@ public class DGraph {
 			word1= words[index].toLowerCase();
 			word2= words[index+1].toLowerCase();
 			word3=oneBridgeWord(word1,word2);
+			
+			
 			if(word3 == null){
 				text = text +" "+word2;
 			}else{
@@ -144,7 +159,7 @@ public class DGraph {
 		int WalkVertex = -1;   //随机游走起始的节点索引
 		while(WalkVertex < 0)
 			WalkVertex = r.nextInt() % VertexNum; 
-		
+		//System.out.println(WalkVertex);
 		StringBuilder WordBuilder = new StringBuilder();
 		String firstword = adj[WalkVertex].getHead().word;
 		WordBuilder.append(firstword);
@@ -187,7 +202,7 @@ public class DGraph {
 			}
 				
 		}
-		
+		//WordBuilder.append(" "+adj[nextVertex].first.Word);
 		Reply = WordBuilder.toString();
 		return Reply;
 	}
@@ -350,13 +365,13 @@ public class DGraph {
 			for(int i = 1;i< vertex;i++)          //z最多循环(V-1)次
 			{
 				int MINdist = MAX;           //当前的最短路径
-				int interVertex = index1;    //途经的中间点
-				for(int j = 0;j<vertex;j++)  //选择当前距离最小的边
+				//int interVertex = index1;    //途经的中间点
+				for(int j = 0;j<vertex;j++)
 				{
 					if(!visited[j] && dist[j] < MINdist)
 					{
 						MINdist = dist[j];
-						interVertex = j;
+						//interVertex = j;
 					}
 				}
 				int[] interVertexs = new int[vertex];
@@ -588,7 +603,7 @@ public class DGraph {
 	private int version = 1;
 
 	public static final int MAX = 32767;
-	private static final int infinite = 1000;
+	//private static final int infinite = 1000;
 }
 
 class Node{
@@ -611,7 +626,7 @@ class Node{
 }
 
 class LinkedList{
-	private Node first = null;
+	private Node head = null;
 	private Node tail = null;
 	public int nodeNum;
 	public LinkedList(){
@@ -620,17 +635,17 @@ class LinkedList{
 	public LinkedList(String w){
 		nodeNum = 0;
 		Node newNode = new Node(w,-1);
-		first = newNode;
+		head = newNode;
 		tail = newNode;
 	}
 	public boolean isEmpty(){
 
-		return first==null;
+		return head==null;
 	}
 	public void addNode(String w,int n){
 		Node newNode = new Node(w,n);
 		if(isEmpty()){
-			first = tail = newNode;
+			head = tail = newNode;
 		}else{
 			tail.next = newNode;
 			tail = newNode;
@@ -638,7 +653,7 @@ class LinkedList{
 		nodeNum++;
 	}
 	public Node getHead(){
-		return first;
+		return head;
 	}
 	public Node getTail(){
 		return tail;
